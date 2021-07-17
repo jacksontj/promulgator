@@ -23,8 +23,8 @@ func (n *IgnoreErrorAPI) LabelNames(ctx context.Context) ([]string, v1.Warnings,
 }
 
 // LabelValues performs a query for the values of the given label.
-func (n *IgnoreErrorAPI) LabelValues(ctx context.Context, label string) (model.LabelValues, v1.Warnings, error) {
-	v, w, _ := n.API.LabelValues(ctx, label)
+func (n *IgnoreErrorAPI) LabelValues(ctx context.Context, label string, matchers []string) (model.LabelValues, v1.Warnings, error) {
+	v, w, _ := n.API.LabelValues(ctx, label, matchers)
 
 	return v, w, nil
 }
